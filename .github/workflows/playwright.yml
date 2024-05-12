@@ -13,6 +13,8 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
+    - name: Print env vars
+      run: echo $PLAYWRIGHT_USERNAME; echo $PLAYWRIGHT_PASSWORD
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
