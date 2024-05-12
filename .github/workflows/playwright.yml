@@ -2,47 +2,47 @@ name: Playwright Tests
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
 
 env:
-  POTATO: Platano
-  PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
-  # MOTOTO: ${{ env.PLAYWRIGHT_USERNAME }}
+#   POTATO: Platano
+#   PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+  MOTOTO: ${{ vars.PLAYWRIGHT_USERNAME }}
 
 jobs:
   validate-yaml:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-        - name: Validate YAML file
-          run: yamllint playwright.yml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate YAML file
+        run: yamllint playwright.yml
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-latest        
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: Print env vars      
-      # env:
-      #   # PLAYWRIGHT_USERNAME: ${{ env.PLAYWRIGHT_USERNAME }}
-      #   PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
-      run: echo $PLAYWRIGHT_USERNAME; echo $PLAYWRIGHT_PASSWORD; echo $POTATO; echo $MOTOTO
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests      
-      run: npx playwright test
-      env:
-        # PLAYWRIGHT_USERNAME: ${{ env.PLAYWRIGHT_USERNAME }}
-        PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
-    - uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Print env vars
+        env:
+          PLAYWRIGHT_USERNAME: ${{ vars.PLAYWRIGHT_USERNAME }}
+          PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+        run: echo $PLAYWRIGHT_USERNAME; echo $PLAYWRIGHT_PASSWORD; echo $MOTOTO
+      # - name: Install dependencies
+      #   run: npm ci
+      # - name: Install Playwright Browsers
+      #   run: npx playwright install --with-deps
+      # - name: Run Playwright tests
+      #   run: npx playwright test
+      #   env:
+      #     PLAYWRIGHT_USERNAME: ${{ vars.PLAYWRIGHT_USERNAME }}
+      #     PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+      # - uses: actions/upload-artifact@v4
+      #   if: always()
+      #   with:
+      #     name: playwright-report
+      #     path: playwright-report/
+      #     retention-days: 30
