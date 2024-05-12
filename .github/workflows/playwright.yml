@@ -6,15 +6,14 @@ on:
   pull_request:
     branches: [ main, master ]
 
-env:
-  POTATO: Platano
-  PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
-  MOTOTO: ${{ env.PLAYWRIGHT_USERNAME }}
-
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest    
+    env:
+      POTATO: Platano
+      PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+      MOTOTO: ${{ env.PLAYWRIGHT_USERNAME }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
