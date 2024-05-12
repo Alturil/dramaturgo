@@ -12,6 +12,12 @@ env:
       MOTOTO: ${{ env.PLAYWRIGHT_USERNAME }}
 
 jobs:
+  validate-yaml:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Validate YAML file
+          run: yamllint playwright.yml
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest        
