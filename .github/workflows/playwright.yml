@@ -1,9 +1,16 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
+env:
+  POTATO: Platano
+  PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+  MOTOTO: ${{ env.PLAYWRIGHT_USERNAME }}
+
 jobs:
   test:
     timeout-minutes: 60
@@ -14,11 +21,10 @@ jobs:
       with:
         node-version: lts/*
     - name: Print env vars      
-      env:
-        POTATO: Poteito
-        # PLAYWRIGHT_USERNAME: ${{ env.PLAYWRIGHT_USERNAME }}
-        PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
-      run: echo $PLAYWRIGHT_USERNAME; echo $PLAYWRIGHT_PASSWORD; echo $POTATO; echo ${{ secrets.PLAYWRIGHT_PASSWORD }}
+      # env:
+      #   # PLAYWRIGHT_USERNAME: ${{ env.PLAYWRIGHT_USERNAME }}
+      #   PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+      run: echo $PLAYWRIGHT_USERNAME; echo $PLAYWRIGHT_PASSWORD; echo $POTATO; echo $MOTOTO
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
