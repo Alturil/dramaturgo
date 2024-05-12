@@ -6,7 +6,6 @@ on:
     branches: [ main, master ]
 jobs:
   test:
-    environment: CICD
     timeout-minutes: 60
     runs-on: ubuntu-latest    
     steps:
