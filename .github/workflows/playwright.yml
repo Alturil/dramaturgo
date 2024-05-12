@@ -6,8 +6,16 @@ on:
   pull_request:
     branches: [main, master]
 
-jobs: 
-  test:
+jobs:
+  validate-yaml:
+    name: Validate yaml file
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate YAML file
+        run: yamllint .
+  run-playwright-tests:
+    name: Run Playwright tests
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
