@@ -6,6 +6,7 @@ on:
     branches: [ main, master ]
 jobs:
   test:
+    environment: CICD
     timeout-minutes: 60
     runs-on: ubuntu-latest    
     steps:
@@ -13,7 +14,7 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
-    - name: Print env vars
+    - name: Print env vars      
       env:
         POTATO: Poteito
         PLAYWRIGHT_USERNAME: ${{ env.PLAYWRIGHT_USERNAME }}
