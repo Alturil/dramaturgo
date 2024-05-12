@@ -9,7 +9,7 @@ on:
 env:
   POTATO: Platano
   PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
-  MOTOTO: ${{ env.PLAYWRIGHT_USERNAME }}
+  # MOTOTO: ${{ env.PLAYWRIGHT_USERNAME }}
 
 jobs:
   validate-yaml:
