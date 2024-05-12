@@ -20,6 +20,7 @@ jobs:
     - name: Run Playwright tests      
       run: npx playwright test
       env:
+        PLAYWRIGHT_USERNAME: ${{ env.PLAYWRIGHT_USERNAME }}
         PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
     - uses: actions/upload-artifact@v4
       if: always()
