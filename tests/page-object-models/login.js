@@ -16,7 +16,7 @@ exports.LoginPage = class LoginPage {
     await this.page.goto('https://www.saucedemo.com/');
   }
 
-  async logIn() {    
+  async logIn() {
     const username = process.env.PLAYWRIGHT_USERNAME || '';
     const password = process.env.PLAYWRIGHT_PASSWORD || '';
 

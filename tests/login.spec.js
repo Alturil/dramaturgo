@@ -1,15 +1,14 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
-require("dotenv").config();
 
 test.describe('Log in to Swag Labs', () => {
-
+  
   const username = process.env.PLAYWRIGHT_USERNAME || '';
   const password = process.env.PLAYWRIGHT_PASSWORD || '';
 
   expect(username).not.toBe('');
   expect(password).not.toBe('');
-  
+
   test.beforeEach(async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await expect(page).toHaveTitle(/Swag Labs/);
