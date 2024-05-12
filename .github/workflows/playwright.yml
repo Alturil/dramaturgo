@@ -16,9 +16,9 @@ jobs:
     - name: Print env vars      
       env:
         POTATO: Poteito
-        PLAYWRIGHT_USERNAME: ${{ env.PLAYWRIGHT_USERNAME }}
+        # PLAYWRIGHT_USERNAME: ${{ env.PLAYWRIGHT_USERNAME }}
         PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
-      run: echo $PLAYWRIGHT_USERNAME; echo $PLAYWRIGHT_PASSWORD; echo $POTATO
+      run: echo $PLAYWRIGHT_USERNAME; echo $PLAYWRIGHT_PASSWORD; echo $POTATO; echo ${{ secrets.PLAYWRIGHT_PASSWORD }}
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
@@ -26,7 +26,7 @@ jobs:
     - name: Run Playwright tests      
       run: npx playwright test
       env:
-        PLAYWRIGHT_USERNAME: ${{ env.PLAYWRIGHT_USERNAME }}
+        # PLAYWRIGHT_USERNAME: ${{ env.PLAYWRIGHT_USERNAME }}
         PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
     - uses: actions/upload-artifact@v4
       if: always()
