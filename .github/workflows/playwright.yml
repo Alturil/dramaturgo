@@ -7,9 +7,9 @@ on:
     branches: [ main, master ]
 
 env:
-      POTATO: Platano
-      PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
-      MOTOTO: ${{ env.PLAYWRIGHT_USERNAME }}
+  POTATO: Platano
+  PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+  MOTOTO: ${{ env.PLAYWRIGHT_USERNAME }}
 
 jobs:
   validate-yaml:
