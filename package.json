@@ -1,0 +1,14 @@
+{
+  "name": "dramaturgo",
+  "version": "1.0.0",
+  "description": "- A good IDE: [Visual Studio Code](https://code.visualstudio.com/)\r     - Optional: [Playwright Test for VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)\r - Optional: A good terminal: Windows Terminal (get it from the Microsoft Store)\r - [Git](https://git-scm.com/download/win) for version control:   \r     - Optional: [posh-git](https://github.com/dahlbyk/posh-git) to get inline Git status summary info.\r     - Create an account on [Github](https://github.com/)\r - [Node](https://nodejs.org/en/download) as the runtime for Javascript",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.12.11"
+  }
+}
