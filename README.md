@@ -1,6 +1,8 @@
 # 🎭Playwright learning
 ![Playwright tests status](https://github.com/Alturil/dramaturgo/actions/workflows/playwright.yml/badge.svg)
 
+THIS IS POTATO
+
 This repo is a playground I'm using to learn test automation with Playwright. It's a work in progress, but it already showcases a few things, such as:
 
 - **Playwright capabilities:**
